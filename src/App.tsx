@@ -31,34 +31,22 @@ const App = () => (
         <Toaster />
         <Sonner />
         <HelmetProvider>
-        <BrowserRouter>
-          <AuthProvider>
-            <ProfileProvider>
-            <NotificationProvider>
-              <ChatProvider>
-              <SupportChatProvider>
-                <ProfileModalProvider>
-                  <Suspense fallback={<PageLoader />}>
-                  <Routes>
-                    {/* ================= PUBLIC ================= */}
-                    <Route element={<PublicLayout />}>
-                      <Route index element={<Lazy.Landing />} />
-                      <Route path="about" element={<About />} />
-                      <Route path="contact" element={<Contact />} />
-                      <Route path="privacy" element={<Privacy />} />
-                      <Route path="terms" element={<Terms />} />
-                    </Route>
+          <BrowserRouter>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                {/* ================= PUBLIC ================= */}
+                <Route element={<PublicLayout />}>
+                  <Route index element={<Lazy.Landing />} />
+                  <Route path="about" element={<About />} />
+                  <Route path="contact" element={<Contact />} />
+                  <Route path="privacy" element={<Privacy />} />
+                  <Route path="terms" element={<Terms />} />
+                </Route>
 
-                  </Routes>
-                </Suspense>
-                </ProfileModalProvider>
-              </SupportChatProvider>
-              </ChatProvider>
-            </NotificationProvider>
-            </ProfileProvider>
-          </AuthProvider>
-        </BrowserRouter>
-      </HelmetProvider>
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </HelmetProvider>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
