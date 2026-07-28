@@ -12,7 +12,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
-
+import PageLoader from "@/components/PageLoader";
 
 import { Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
