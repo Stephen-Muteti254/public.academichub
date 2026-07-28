@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 // import DarkLogo from "@/assets/academichub-logo-dark-theme.png";
 import LightLogo from "@/assets/logo/logo-light.svg";
 import DarkLogo from "@/assets/logo/logo-dark.svg";
+import { PORTALS } from "@/config/portals";
 
 interface PublicLayoutProps {
   children: React.ReactNode;
@@ -90,11 +91,19 @@ export const PublicLayout = ({ children }: PublicLayoutProps) => {
 
             {/* Auth Buttons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" asChild>
-                <Link to="/login">Login</Link>
+              <Button
+                variant="ghost"
+                onClick={() => window.location.assign(PORTALS.AUTH)}
+              >
+                Login
               </Button>
-              <Button asChild>
-                <Link to="/register">Get Started</Link>
+
+              <Button
+                onClick={() =>
+                  window.location.assign(`${PORTALS.AUTH}/register`)
+                }
+              >
+                Get Started
               </Button>
             </div>
 
@@ -131,15 +140,25 @@ export const PublicLayout = ({ children }: PublicLayoutProps) => {
                 </Link>
               ))}
               <div className="pt-4 space-y-2">
-                <Button variant="ghost" className="w-full" asChild>
-                  <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
-                    Login
-                  </Link>
+                <Button
+                  variant="ghost"
+                  className="w-full"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.location.assign(PORTALS.AUTH);
+                  }}
+                >
+                  Login
                 </Button>
-                <Button className="w-full" asChild>
-                  <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
-                    Get Started
-                  </Link>
+
+                <Button
+                  className="w-full"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.location.assign(`${PORTALS.AUTH}/register`);
+                  }}
+                >
+                  Get Started
                 </Button>
               </div>
             </div>
